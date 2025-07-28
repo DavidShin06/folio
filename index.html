@@ -381,22 +381,22 @@
 
     updateSlide(0);
 
-    const cursor = document.querySelector('.custom-cursor');
-    const videoItems = document.querySelectorAll('.video-item iframe, .carousel-item iframe');
+const cursor = document.querySelector('.custom-cursor');
+const videoItems = document.querySelectorAll('.video-item iframe, .carousel-item iframe');
 
-    document.addEventListener('mousemove', (e) => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-    });
+document.addEventListener('mousemove', (e) => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
 
-    videoItems.forEach(item => {
-      item.addEventListener('mouseenter', () => {
-        cursor.classList.add('hovering');
-      });
-      item.addEventListener('mouseleave', () => {
-        cursor.classList.remove('hovering');
-      });
-    });
+videoItems.forEach(item => {
+  item.addEventListener('mouseenter', () => {
+    cursor.classList.add('hovering');
+  });
+  item.addEventListener('mouseleave', () => {
+    cursor.classList.remove('hovering');
+  });
+});
   </script> <!-- ✅ JavaScript 끝나는 위치 -->
 
   <div class="custom-cursor"></div> <!-- ✅ JS가 끝난 후 HTML 요소 -->
