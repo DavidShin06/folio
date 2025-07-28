@@ -126,6 +126,21 @@
 .dot.active {
   background-color: #fff;
 }
+  .custom-cursor {
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  transition: transform 0.1s ease;
+}
+
+body {
+  cursor: none;
+}
 
 </style>
 </head>
