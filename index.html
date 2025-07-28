@@ -385,10 +385,19 @@
 
     // 커서 관련
     const cursor = document.querySelector('.custom-cursor');
+    let mouseX = 0, mouseY = 0;
+
     document.addEventListener('mousemove', (e) => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-    });
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+});
+
+function animateCursor() {
+  cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+  requestAnimationFrame(animateCursor);
+}
+
+requestAnimationFrame(animateCursor);
 
     const videoItems = document.querySelectorAll('iframe');
     videoItems.forEach(item => {
