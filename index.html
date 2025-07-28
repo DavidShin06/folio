@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hyoseong Shin | Video Portfolio</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; background: #111; color: #fff; line-height: 1.6; }
+  header, footer { background: #000; text-align: center; padding: 20px 0; }
+  nav ul { list-style: none; display: flex; justify-content: center; gap: 30px; }
+  nav a { color: #fff; text-decoration: none; font-weight: bold; }
+  section { padding: 60px 20px; max-width: 1200px; margin: auto; }
+  h1, h2 { text-align: center; margin-bottom: 30px; }
+  .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .video-item iframe { width: 100%; height: 200px; }
+  .about, .contact { text-align: center; max-width: 800px; margin: auto; }
+  .contact a { color: #0af; text-decoration: underline; }
+  .about img { width: 180px; border-radius: 0; margin-bottom: 20px; }
+
+  /* 👇 요 아래부터 추가된 부분 */
+  .scroll-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 10px;
+  }
+  .scroll-item {
+    display: inline-block;
+    width: 300px;
+    margin-right: 20px;
+    vertical-align: top;
+  }
+  .scroll-item iframe {
+    width: 100%;
+    height: 200px;
+  }
+  .scroll-item p {
+    text-align: left;
+  }
+.carousel-container {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+.carousel-item iframe {
+  width: 100%;
+  height: 400px;
+}
+.dots {
+  text-align: center;
+  margin-top: 10px;
+}
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 5px;
+  border-radius: 50%;
+  background-color: #666;
+  cursor: pointer;
+}
+.dot.active {
+  background-color: #fff;
+}
+.carousel-container {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.carousel-item {
+  flex: 0 0 100%;
+  transition: transform 0.5s, opacity 0.5s;
+  transform: scale(0.8);
+  opacity: 0.3;
+  box-sizing: border-box;
+  padding: 10px;
+}
+.carousel-item.active {
+  transform: scale(1);
+  opacity: 1;
+}
+.carousel-item iframe {
+  width: 100%;
+  height: 360px;
+}
+.dots {
+  text-align: center;
+  margin-top: 10px;
+}
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 5px;
+  border-radius: 50%;
+  background-color: #666;
+  cursor: pointer;
+}
+.dot.active {
+  background-color: #fff;
+}
+
+</style>
+</head>
+<body>
+
+  <header>
+    <h1>Hyoseong Shin | Portfolio</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home">
+    <div class="about" style="margin-bottom: 40px; text-align: center;">
+      <h2>Hello, I’m Hyoseong Shin</h2>
+      <p>I’m a video designer based in Korea with a strong passion for cinematic storytelling and impactful visuals. 
+      <p>With a background in motion graphics, 3D design, and commercial content production, I focus on crafting content that captures attention and emotion.</p>
+    </div>
+    <div style="max-width: 960px; margin: auto; margin-bottom: 40px;">
+      <iframe 
+        width="100%" 
+        height="540" 
+        src="https://www.youtube.com/embed/bO1Ucq-Hs5w?autoplay=1&mute=0&rel=0&playsinline=1" 
+        title="Hyoseong Shin Reel" 
+        frameborder="0" 
+        allow="autoplay; encrypted-media" 
+        allowfullscreen>
+      </iframe>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <h2>Portfolio</h2>
+
+    <h3 style="margin-top: 40px; text-align: center;">Commercial Work</h3>
+    <div class="video-grid">
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/titcDYnCDew" frameborder="0" allowfullscreen></iframe>
+        <p><strong>마리아 병원 - 태몽</strong></p>
+        <p style="font-size: 0.8rem; color: #aaa;">3D 캐릭터 모델링 및 애니메이션, 컴포지팅</p>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/zzI3XJw4Kvk" frameborder="0" allowfullscreen></iframe>
+        <p><strong>한국관광공사 / Kooking Korea</strong></p>
+        <p style="font-size: 0.8rem; color: #aaa;">타이틀 시퀀스 연출 및 제작, 2D 모션그래픽</p>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/nTShb_3KeLA?feature=shared" frameborder="0" allowfullscreen></iframe>
+        <p><strong>홈노크타운 </strong></p>
+        <p style="font-size: 0.8rem; color: #aaa;">3D 모션그래픽, 2D 아트웍 연출</p>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/Lur5GgqMFbk?feature=shared" frameborder="0" allowfullscreen></iframe>
+        <p><strong>홈노크타운 </strong></p>
+        <p style="font-size: 0.8rem; color: #aaa;">3D,2D 모션그래픽 및 합성</p>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/MFcX5Qy5OFg" frameborder="0" allowfullscreen></iframe>
+        <p><strong>McCain - Brand Film</strong></p>
+        <p style="font-size: 0.8rem; color: #aaa;">브랜딩 연출 및 메인 편집</p>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/blQ9U8sGTgI" frameborder="0" allowfullscreen></iframe>
+        <p><strong>국방부 - 탄생하다 시리즈</strong></p>
+        <p style="font-size: 0.8rem; color: #aaa;">타이틀 시퀀스 연출 및 제작, 삽입 CG 제작</p>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/peorlE9l-Ms" frameborder="0" allowfullscreen></iframe>
+        <p><strong>Tylenol Children's TVC</strong></p>
+        <p style="font-size: 0.8rem; color: #aaa;">영상 디자인 및 키비주얼 모션</p>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/gveZKrqbAic" frameborder="0" allowfullscreen></iframe>
+        <p><strong>제스프리</strong></p>
+        <p style="font-size: 0.8rem; color: #aaa;">모션그래픽 연출 및 컴포지팅</p>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/Rbfn31aE_2c" frameborder="0" allowfullscreen></iframe>
+        <p><strong>현대모터스 - Ai딜리버리 로봇</strong></p>
+        <p style="font-size: 0.8rem; color: #aaa;"> UI 모션그래픽 및 CG 합성, 타이틀 디자인</p>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/QG2Ec5hXmIk" frameborder="0" allowfullscreen></iframe>
+        <p><strong>플러그링크</strong></p>
+        <p style="font-size: 0.8rem; color: #aaa;">2D/3D 모션그래픽</p>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/0O_VGZuMyJI" frameborder="0" allowfullscreen></iframe>
+        <p><strong>BOOSTAR</strong></p>
+        <p style="font-size: 0.8rem; color: #aaa;">2D/3D 모션그래픽 연출 및 제작</p>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/yRRUPArfVfM" frameborder="0" allowfullscreen></iframe>
+        <p><strong>해피문데이 - 이지탐폰</strong></p>
+        <p style="font-size: 0.8rem; color: #aaa;">컴포지팅 및 CG 모션그래픽</p>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/uJ_4HNIqNjM?si=F7SqFUy1GMucZLGA" frameborder="0" allowfullscreen></iframe>
+        <p><strong>Style C</strong></p>
+        <p style="font-size: 0.8rem; color: #aaa;">스크린 합성 및 2D 아트웍 모션그래픽</p>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/qQTrApy_xqc?feature=shared" frameborder="0" allowfullscreen></iframe>
+        <p><strong>서울관광재단</strong></p>
+        <p style="font-size: 0.8rem; color: #aaa;">아트제작 및 모션그래픽</p>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/88qeN9jGBFU" frameborder="0" allowfullscreen></iframe>
+        <p><strong>3Billion</strong></p>
+        <p style="font-size: 0.8rem; color: #aaa;">아트제작 및 모션그래픽</p>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/Y4c3up2bzx0" frameborder="0" allowfullscreen></iframe>
+        <p><strong>아모레퍼시픽 공감재단</strong></p>
+        <p style="font-size: 0.8rem; color: #aaa;">타이틀 디자인 및 영상합성</p>
+      </div>
+    </div>
+    </div>
+
+    <h3 style="margin-top: 60px; text-align: center;">Series Work (국민은행 시리즈)</h3>
+    <div class="carousel-container">
+      <div class="carousel-slide">
+        <div class="carousel-item active">
+          <iframe src="https://www.youtube.com/embed/-CI2oYV_5SA" frameborder="0" allowfullscreen></iframe>
+          <p style="text-align:center;"><strong>국민은행 시리즈 1</strong></p>
+          <p style="font-size: 0.8rem; color: #aaa; text-align:center;">텍스트 디자인 및 2D CG제작</p>
+        </div>
+        <div class="carousel-item">
+          <iframe src="https://www.youtube.com/embed/xMumZ6WtuEQ" frameborder="0" allowfullscreen></iframe>
+          <p style="text-align:center;"><strong>국민은행 시리즈 2</strong></p>
+          <p style="font-size: 0.8rem; color: #aaa; text-align:center;">CG합성 및 타이틀, 2D 모션그래픽 연출</p>
+        </div>
+        <div class="carousel-item">
+          <iframe src="https://www.youtube.com/embed/P2D7BJanQJk" frameborder="0" allowfullscreen></iframe>
+          <p style="text-align:center;"><strong>국민은행 시리즈 3</strong></p>
+          <p style="font-size: 0.8rem; color: #aaa; text-align:center;">CG합성 및 타이틀, 2D 모션그래픽 연출</p>
+        </div>
+        <div class="carousel-item">
+          <iframe src="https://www.youtube.com/embed/c7-HqpFg4_s" frameborder="0" allowfullscreen></iframe>
+          <p style="text-align:center;"><strong>국민은행 시리즈 4</strong></p>
+          <p style="font-size: 0.8rem; color: #aaa; text-align:center;">CG합성 및 타이틀, 2D 모션그래픽 연출</p>
+        </div>
+        <div class="carousel-item">
+          <iframe src="https://www.youtube.com/embed/0IXBd23W0io" frameborder="0" allowfullscreen></iframe>
+          <p style="text-align:center;"><strong>국민은행 시리즈 5</strong></p>
+          <p style="font-size: 0.8rem; color: #aaa; text-align:center;">타이틀 모션그래픽, CG 제작 및 합성</p>
+
+        </div>
+      </div>
+      <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </section></div>
+    <h3 style="margin-top: 60px; text-align: center;">Personal Work</h3>
+    <div class="video-grid">
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/Y4c3up2bzx0" frameborder="0" allowfullscreen></iframe>
+        <p><strong>영상 포트폴리오 리얼</strong></p>
+        <p style="font-size: 0.8rem; color: #aaa;">기여도: 전체 연출 및 영상 제작</p>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/Y4c3up2bzx0" frameborder="0" allowfullscreen></iframe>
+        <p><strong>영상 포트폴리오 리얼</strong></p>
+        <p style="font-size: 0.8rem; color: #aaa;">기여도: 전체 연출 및 영상 제작</p>
+      </div>
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/Y4c3up2bzx0" frameborder="0" allowfullscreen></iframe>
+        <p><strong>영상 포트폴리오 리얼</strong></p>
+        <p style="font-size: 0.8rem; color: #aaa;">기여도: 전체 연출 및 영상 제작</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about">
+      <img src="images/profile.jpg" alt="Profile photo of Hyoseong Shin">
+      <h3>Hyoseong Shin</h3>
+      <p>Hello! I’m a passionate video designer with a love for storytelling and cinematic visuals.</p>
+      <p>I create impactful content that blends creativity with precision.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact">
+      <p>Let’s connect and create something amazing together.</p>
+      <p>Email: <a href="mailto:seong0618@kakao.com">seong0618@kakao.com</a></p>
+      <p>Phone: 010-6471-7292</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Hyoseong Shin</p>
+  </footer>
+
+   <script>
+    const slide = document.querySelector(".carousel-slide");
+    const dots = document.querySelectorAll(".dot");
+    const items = document.querySelectorAll(".carousel-item");
+    let currentIndex = 0;
+
+    function updateSlide(index) {
+      slide.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach(dot => dot.classList.remove("active"));
+      dots[index].classList.add("active");
+
+      items.forEach(item => item.classList.remove("active"));
+      items[index].classList.add("active");
+
+      currentIndex = index;
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        updateSlide(index);
+      });
+    });
+
+    updateSlide(0);
+  </script>
+</body>
+</html>
