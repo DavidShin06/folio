@@ -7,19 +7,7 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: Arial, sans-serif; background: #111; color: #fff; line-height: 1.6; }
-  
-  header {
-    background: #000;
-    text-align: center;
-    padding: 80px 0 60px 0;
-  }
-
-  footer {
-    background: #000;
-    text-align: center;
-    padding: 20px 0;
-  }
-
+  header, footer { background: #000; text-align: center; padding: 20px 0; }
   nav ul { list-style: none; display: flex; justify-content: center; gap: 30px; }
   nav a { color: #fff; text-decoration: none; font-weight: bold; }
   section { padding: 60px 20px; max-width: 1200px; margin: auto; }
@@ -30,7 +18,7 @@
   .contact a { color: #0af; text-decoration: underline; }
   .about img { width: 180px; border-radius: 0; margin-bottom: 20px; }
 
-  /* 요 아래부터 추가된 부분 */
+  /* 👇 요 아래부터 추가된 부분 */
   .scroll-container {
     overflow-x: auto;
     white-space: nowrap;
@@ -126,6 +114,7 @@
 .dot.active {
   background-color: #fff;
 }
+
 </style>
 </head>
 <body>
@@ -143,7 +132,7 @@
   </header>
 
   <section id="home">
-    <div class="about" style="margin-bottom: 80px; text-align: center;">
+    <div class="about" style="margin-bottom: 40px; text-align: center;">
       <h2>Hello, I’m Hyoseong Shin</h2>
       <p>I’m a video designer based in Korea with a strong passion for cinematic storytelling and impactful visuals. 
       <p>With a background in motion graphics, 3D design, and commercial content production, I focus on crafting content that captures attention and emotion.</p>
@@ -287,8 +276,7 @@
         <span class="dot"></span>
       </div>
     </div>
-    
-  </section>
+  </section></div>
     <h3 style="margin-top: 60px; text-align: center;">Personal Work</h3>
     <div class="video-grid">
       <div class="video-item">
@@ -332,13 +320,7 @@
     <p>&copy; 2025 Hyoseong Shin</p>
   </footer>
 
-<body>
-  <!-- ✅ HTML 요소는 반드시 스크립트보다 먼저 있어야 함 -->
-  <div class="custom-cursor"></div>
-
-  <!-- ✅ 모든 script는 body 맨 아래에 둬야 안전 -->
-  <script>
-    // 캐러셀 관련
+   <script>
     const slide = document.querySelector(".carousel-slide");
     const dots = document.querySelectorAll(".dot");
     const items = document.querySelectorAll(".carousel-item");
@@ -348,17 +330,20 @@
       slide.style.transform = `translateX(-${index * 100}%)`;
       dots.forEach(dot => dot.classList.remove("active"));
       dots[index].classList.add("active");
+
       items.forEach(item => item.classList.remove("active"));
       items[index].classList.add("active");
+
       currentIndex = index;
     }
 
     dots.forEach((dot, index) => {
-      dot.addEventListener("click", () => updateSlide(index));
+      dot.addEventListener("click", () => {
+        updateSlide(index);
+      });
     });
 
     updateSlide(0);
   </script>
 </body>
-
 </html>
