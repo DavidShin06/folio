@@ -126,30 +126,31 @@
 .dot.active {
   background-color: #fff;
 }
-.custom-cursor {
-  width: 20px;
-  height: 20px;
-  border: 2px solid white;
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-  transition: all 0.2s ease;
-  background-color: transparent;
-}
 
-/* 썸네일 위에 올라갔을 때: 투명한 원 */
-.custom-cursor.hovering {
-  width: 40px;
-  height: 40px;
-  border-color: rgba(255, 255, 255, 0.3);
-}
+/* 커서 변경 */
+ body {
+    cursor: none;
+  }
 
-body {
-  /* cursor: none; */
-}
+  .custom-cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    transition: all 0.2s ease;
+    background-color: transparent;
+  }
 
+  .custom-cursor.hovering {
+    width: 40px;
+    height: 40px;
+    border-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
 </style>
 </head>
 <body>
