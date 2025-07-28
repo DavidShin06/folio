@@ -313,15 +313,7 @@
   <footer>
     <p>&copy; 2025 Hyoseong Shin</p>
   </footer>
-
-    <script>
-const slide = document.querySelector(".carousel-slide");
-const dots = document.querySelectorAll(".dot");
-...
-👇 아래처럼 수정 (예: 국민은행과 타이레놀 따로 관리)
-js
-복사
-편집
+<script>
 function setupCarousel(containerSelector) {
   const container = document.querySelector(containerSelector);
   const slide = container.querySelector(".carousel-slide");
@@ -334,11 +326,12 @@ function setupCarousel(containerSelector) {
 
   function updateSlide(index) {
     slide.style.transform = `translateX(-${index * 100}%)`;
+
     dots.forEach(dot => dot.classList.remove("active"));
-    dots[index].classList.add("active");
+    if (dots[index]) dots[index].classList.add("active");
 
     items.forEach(item => item.classList.remove("active"));
-    items[index].classList.add("active");
+    if (items[index]) items[index].classList.add("active");
 
     currentIndex = index;
   }
@@ -347,36 +340,27 @@ function setupCarousel(containerSelector) {
     dot.addEventListener("click", () => updateSlide(index));
   });
 
-  prevBtn.addEventListener("click", () => {
-    const newIndex = (currentIndex - 1 + items.length) % items.length;
-    updateSlide(newIndex);
-  });
-
-  nextBtn.addEventListener("click", () => {
-    const newIndex = (currentIndex + 1) % items.length;
-    updateSlide(newIndex);
-  });
-
-  updateSlide(0);
-}
-
-// 시리즈별로 각각 호출
-setupCarousel(".carousel-container"); // 국민은행
-setupCarousel(".tylenol-carousel");   // 타이레놀
-
-    const prevBtn = document.querySelector(".carousel-button.left");
-    const nextBtn = document.querySelector(".carousel-button.right");
-
+  if (prevBtn) {
     prevBtn.addEventListener("click", () => {
       const newIndex = (currentIndex - 1 + items.length) % items.length;
       updateSlide(newIndex);
     });
+  }
 
+  if (nextBtn) {
     nextBtn.addEventListener("click", () => {
       const newIndex = (currentIndex + 1) % items.length;
       updateSlide(newIndex);
     });
-  </script>
+  }
+
+  updateSlide(0);
+}
+
+// ✅ 이걸로 작동 시작!
+setupCarousel(".carousel-container");
+</script>
+
 </body>
 </html>
 
