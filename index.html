@@ -6,37 +6,108 @@
   <title>Hyoseong Shin | Video Portfolio</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: Arial, sans-serif; background: #111; color: #fff; line-height: 1.6; }
-  header, footer { background: #000; text-align: center; padding: 20px 0; }
-  nav ul { list-style: none; display: flex; justify-content: center; gap: 30px; }
-  nav a { color: #fff; text-decoration: none; font-weight: bold; }
-  section { padding: 60px 20px; max-width: 1200px; margin: auto; }
-  h1, h2 { text-align: center; margin-bottom: 30px; }
-  .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-  .video-item iframe { width: 100%; height: 200px; }
-  .about, .contact { text-align: center; max-width: 800px; margin: auto; }
-  .contact a { color: #0af; text-decoration: underline; }
-  .about img { width: 180px; border-radius: 0; margin-bottom: 20px; }
-
-  .scroll-container {
-    overflow-x: auto;
-    white-space: nowrap;
-    padding-bottom: 10px;
+  body {
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: #fff;
+    line-height: 1.6;
   }
-  .scroll-item {
-    display: inline-block;
-    width: 300px;
-    margin-right: 20px;
-    vertical-align: top;
+  header, footer {
+    background: #000;
+    text-align: center;
+    padding: 60px 0;
   }
-  .scroll-item iframe {
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  h1, h2 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .video-item iframe {
     width: 100%;
     height: 200px;
   }
-  .scroll-item p {
-    text-align: left;
+  .about, .contact {
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+  }
+  .contact a {
+    color: #0af;
+    text-decoration: underline;
   }
 
+  /* About Section */
+  .about-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  .about-photo {
+    flex: 0 0 180px;
+    display: flex;
+    justify-content: center;
+  }
+  .about-photo img {
+    width: 160px;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+  .about-text {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+    font-size: 0.95rem;
+    color: #ddd;
+  }
+  .about-text h3 {
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+    color: #fff;
+  }
+  .about-text p {
+    margin-bottom: 14px;
+  }
+  .about-text .kr {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .tools2-image {
+    margin-top: 10px;
+    max-width: 100%;
+    height: auto;
+    opacity: 0.85;
+    filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
+  }
+
+  /* Carousel */
   .carousel-container {
     position: relative;
     max-width: 720px;
@@ -49,11 +120,11 @@
   }
   .carousel-item {
     flex: 0 0 100%;
-    transition: transform 0.5s, opacity 0.5s;
+    padding: 10px;
+    box-sizing: border-box;
     transform: scale(0.8);
     opacity: 0.3;
-    box-sizing: border-box;
-    padding: 10px;
+    transition: transform 0.5s, opacity 0.5s;
   }
   .carousel-item.active {
     transform: scale(1);
@@ -63,57 +134,7 @@
     width: 100%;
     height: 360px;
   }
-  .dots {
-    text-align: center;
-    margin-top: 10px;
-  }
-  .dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin: 5px;
-    border-radius: 50%;
-    background-color: #666;
-    cursor: pointer;
-  }
-  .dot.active {
-    background-color: #fff;
-  }
 
-.about-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 40px;
-  max-width: 1000px;
-  margin: auto;
-}
-
-.about-photo img {
-  width: 200px;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-.about-text {
-  flex: 1;
-  text-align: left;
-}
-
-.about-text h3 {
-  margin-bottom: 16px;
-  font-size: 1.8rem;
-  color: #fff;
-}
-
-.about-text p {
-  margin-bottom: 12px;
-  color: #ccc;
-  line-height: 1.6;
-}
-
-
-  /* 👇 화살표 위치 수정: 영상 밖 양쪽 중앙에 고정 */
   .carousel-button {
     position: absolute;
     top: 50%;
@@ -131,139 +152,28 @@
     background: rgba(255, 255, 255, 0.2);
   }
   .carousel-button.left {
-    left: -50px; /* 왼쪽 영상 밖으로 */
+    left: -50px;
   }
   .carousel-button.right {
-    right: -50px; /* 오른쪽 영상 밖으로 */
+    right: -50px;
   }
-  .about-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 32px;
-  max-width: 1000px;
-  margin: auto;
-}
 
-.about-photo img {
-  width: 160px;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-.about-text {
-  flex: 1;
-  text-align: left;
-  font-size: 0.92rem;
-  color: #ccc;
-  line-height: 1.6;
-}
-
-.about-text h3 {
-  margin-bottom: 14px;
-  font-size: 1.6rem;
-  color: #fff;
-}
-
-.about-text p {
-  margin-bottom: 14px;
-}
-
-.about-text .kr {
-  display: block;
-  font-size: 0.86rem;
-  color: #999;
-  margin-top: 4px;
-}
-  .about-container {
-  display: flex;
-  align-items: flex-start;
-  gap: 40px;
-  max-width: 1000px;
-  margin: 0 auto;
-  flex-wrap: wrap;
-}
-
-.about-photo img {
-  width: 160px;
-  border-radius: 4px;
-}
-
-.about-text {
-  flex: 1;
-  min-width: 280px;
-  text-align: left;
-  font-size: 0.95rem;
-  color: #ddd;
-}
-
-.about-text .kr {
-  display: block;
-  margin-top: 4px;
-  font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.55);
-}
-
-.tools-image {
-  margin-top: 10px;
-  max-width: 100%;
-  height: auto;
-  opacity: 0.85;
-  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
-}
-
-  .about-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 50px;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  flex-wrap: wrap;
-}
-
-.about-photo {
-  flex: 0 0 180px;
-  display: flex;
-  justify-content: center;
-}
-
-.about-photo img {
-  width: 160px;
-  height: auto;
-  border-radius: 4px;
-  object-fit: cover;
-}
-
-.about-text {
-  flex: 1;
-  min-width: 300px;
-  text-align: left;
-  font-size: 0.95rem;
-  color: #ddd;
-}
-
-.about-text h3 {
-  margin-bottom: 15px;
-}
-
-.about-text .kr {
-  display: block;
-  margin-top: 4px;
-  font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.55);
-}
-
-.tools2-image {
-  margin-top: 10px;
-  max-width: 100%;
-  height: auto;
-  opacity: 0.85;
-  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
-}
-
-
+  .dots {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 5px;
+    border-radius: 50%;
+    background-color: #666;
+    cursor: pointer;
+  }
+  .dot.active {
+    background-color: #fff;
+  }
 </style>
 </head>
 <body>
