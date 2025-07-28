@@ -265,47 +265,8 @@
       <span class="dot"></span>
       <span class="dot"></span>
     </div>
-  </div>
 
-    <h3 style="margin-top: 60px; text-align: center;">Series Work (국민은행 시리즈)</h3>
-  <div class="carousel-container">
-    <button class="carousel-button left">&#10094;</button>
-    <div class="carousel-slide">
-      <div class="carousel-item active">
-        <iframe src="https://www.youtube.com/embed/-CI2oYV_5SA" frameborder="0" allowfullscreen></iframe>
-        <p style="text-align:center;"><strong>국민은행 시리즈 1</strong></p>
-        <p style="font-size: 0.8rem; color: #aaa; text-align:center;">텍스트 디자인 및 2D CG제작</p>
-      </div>
-      <div class="carousel-item">
-        <iframe src="https://www.youtube.com/embed/xMumZ6WtuEQ" frameborder="0" allowfullscreen></iframe>
-        <p style="text-align:center;"><strong>국민은행 시리즈 2</strong></p>
-        <p style="font-size: 0.8rem; color: #aaa; text-align:center;">CG합성 및 타이틀, 2D 모션그래픽 연출</p>
-      </div>
-      <div class="carousel-item">
-        <iframe src="https://www.youtube.com/embed/P2D7BJanQJk" frameborder="0" allowfullscreen></iframe>
-        <p style="text-align:center;"><strong>국민은행 시리즈 3</strong></p>
-        <p style="font-size: 0.8rem; color: #aaa; text-align:center;">CG합성 및 타이틀, 2D 모션그래픽 연출</p>
-      </div>
-      <div class="carousel-item">
-        <iframe src="https://www.youtube.com/embed/c7-HqpFg4_s" frameborder="0" allowfullscreen></iframe>
-        <p style="text-align:center;"><strong>국민은행 시리즈 4</strong></p>
-        <p style="font-size: 0.8rem; color: #aaa; text-align:center;">CG합성 및 타이틀, 2D 모션그래픽 연출</p>
-      </div>
-      <div class="carousel-item">
-        <iframe src="https://www.youtube.com/embed/0IXBd23W0io" frameborder="0" allowfullscreen></iframe>
-        <p style="text-align:center;"><strong>국민은행 시리즈 5</strong></p>
-        <p style="font-size: 0.8rem; color: #aaa; text-align:center;">타이틀 모션그래픽, CG 제작 및 합성</p>
-      </div>
-    </div>
-    <button class="carousel-button right">&#10095;</button>
-    <div class="dots">
-      <span class="dot active"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
-  </div>
+
   </div>
 
     
@@ -354,29 +315,54 @@
   </footer>
 
     <script>
-    const slide = document.querySelector(".carousel-slide");
-    const dots = document.querySelectorAll(".dot");
-    const items = document.querySelectorAll(".carousel-item");
-    let currentIndex = 0;
+const slide = document.querySelector(".carousel-slide");
+const dots = document.querySelectorAll(".dot");
+...
+👇 아래처럼 수정 (예: 국민은행과 타이레놀 따로 관리)
+js
+복사
+편집
+function setupCarousel(containerSelector) {
+  const container = document.querySelector(containerSelector);
+  const slide = container.querySelector(".carousel-slide");
+  const dots = container.querySelectorAll(".dot");
+  const items = container.querySelectorAll(".carousel-item");
+  const prevBtn = container.querySelector(".carousel-button.left");
+  const nextBtn = container.querySelector(".carousel-button.right");
 
-    function updateSlide(index) {
-      slide.style.transform = `translateX(-${index * 100}%)`;
-      dots.forEach(dot => dot.classList.remove("active"));
-      dots[index].classList.add("active");
+  let currentIndex = 0;
 
-      items.forEach(item => item.classList.remove("active"));
-      items[index].classList.add("active");
+  function updateSlide(index) {
+    slide.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[index].classList.add("active");
 
-      currentIndex = index;
-    }
+    items.forEach(item => item.classList.remove("active"));
+    items[index].classList.add("active");
 
-    dots.forEach((dot, index) => {
-      dot.addEventListener("click", () => {
-        updateSlide(index);
-      });
-    });
+    currentIndex = index;
+  }
 
-    updateSlide(0);
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => updateSlide(index));
+  });
+
+  prevBtn.addEventListener("click", () => {
+    const newIndex = (currentIndex - 1 + items.length) % items.length;
+    updateSlide(newIndex);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    const newIndex = (currentIndex + 1) % items.length;
+    updateSlide(newIndex);
+  });
+
+  updateSlide(0);
+}
+
+// 시리즈별로 각각 호출
+setupCarousel(".carousel-container"); // 국민은행
+setupCarousel(".tylenol-carousel");   // 타이레놀
 
     const prevBtn = document.querySelector(".carousel-button.left");
     const nextBtn = document.querySelector(".carousel-button.right");
