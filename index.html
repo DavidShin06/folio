@@ -7,7 +7,7 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: Arial, sans-serif; background: #111; color: #fff; line-height: 1.6; }
-
+  
   header {
     background: #000;
     text-align: center;
@@ -381,24 +381,28 @@
 
     updateSlide(0);
 
-const cursor = document.querySelector('.custom-cursor');
-const videoItems = document.querySelectorAll('.video-item iframe, .carousel-item iframe');
+<body>
+  <!-- ✅ 반드시 이 안에 있어야 함 -->
+  <div class="custom-cursor"></div>
 
-document.addEventListener('mousemove', (e) => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
-});
+  <script>
+    const cursor = document.querySelector('.custom-cursor');
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
 
-videoItems.forEach(item => {
-  item.addEventListener('mouseenter', () => {
-    cursor.classList.add('hovering');
-  });
-  item.addEventListener('mouseleave', () => {
-    cursor.classList.remove('hovering');
-  });
-});
-  </script> <!-- ✅ JavaScript 끝나는 위치 -->
-
-  <div class="custom-cursor"></div> <!-- ✅ JS가 끝난 후 HTML 요소 -->
+    // iframe 위 hover 효과용 (선택 사항)
+    const videoItems = document.querySelectorAll('iframe');
+    videoItems.forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        cursor.classList.add('hovering');
+      });
+      item.addEventListener('mouseleave', () => {
+        cursor.classList.remove('hovering');
+      });
+    });
+  </script>
 </body>
+
 </html>
